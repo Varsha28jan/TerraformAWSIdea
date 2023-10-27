@@ -15,3 +15,24 @@ linux_policy_arn          = ["arn:aws:iam::aws:policy/AmazonEC2FullAccess", "arn
 iam_instance_profile_name = "linux_instance_profile_sample"
 
 ###end of ec2 module
+
+
+###VPC_module
+vpc_name   = "idea-sample-main-vpc"
+vpc_cidr   = "10.8.0.0/16"
+vpc_region = "us-east-1"
+#Subnet
+vpc_availability_zones    = ["us-east-1a", "us-east-1b", "us-east-1c"]
+vpc_public_subnets_cidr   = ["10.8.0.0/24", "10.8.2.0/24"]
+vpc_private_subnets_cidr  = ["10.8.48.0/20", "10.8.16.0/20"]
+vpc_database_subnets_cidr = ["10.8.34.0/24", "10.8.35.0/24", "10.8.36.0/24"]
+#nat_gateway
+#reuse_nat_ips = true
+#external_natip_id            = ["eipalloc-0314d90da1afa9186"]
+#external_natip_id = ["eipalloc-0314d90da1afa9186"]
+#Tags
+vpc_public_subnet_tags_name   = "idea-sample-main-natg-public"
+vpc_private_subnet_tags_name  = "idea-sample-main-app-private"
+vpc_database_subnet_tags_name = "idea-sample-main-data-private"
+vpc_environment               = "sample"
+###End of VPC_module
