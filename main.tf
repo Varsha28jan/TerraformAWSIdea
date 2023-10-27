@@ -15,3 +15,22 @@ module "ec2_linux" {
   iam_instance_profile_name = var.iam_instance_profile_name
   #kafka_sg_tag_name                 = "idea-qa-main-neptune-sg"
 }
+
+
+module "vpc" {
+  source                    = "./modules/module-vpc"
+  vpc_region                = var.vpc_region
+  vpc_name                  = var.vpc_name
+  vpc_cidr                  = var.vpc_cidr
+  vpc_availability_zones    = var.vpc_availability_zones
+  vpc_public_subnets_cidr   = var.vpc_public_subnets_cidr
+  vpc_private_subnets_cidr  = var.vpc_private_subnets_cidr
+  vpc_database_subnets_cidr = var.vpc_database_subnets_cidr
+  reuse_nat_ips             = var.reuse_nat_ips # to reuse nat ip
+  #external_natip_id             = var.external_natip_id
+  vpc_public_subnet_tags_name   = var.vpc_public_subnet_tags_name
+  vpc_private_subnet_tags_name  = var.vpc_private_subnet_tags_name
+  vpc_database_subnet_tags_name = var.vpc_database_subnet_tags_name
+  vpc_environment               = var.vpc_environment
+  # eks_cluster_name              = var.eks_cluster_name
+}
